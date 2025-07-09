@@ -22,5 +22,14 @@ services:
     depends_on:
       - db
 
+  redis:
+    image: redis:8.2-rc1-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
 volumes:
   db_data:
+  redis_data:
